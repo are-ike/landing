@@ -9,6 +9,9 @@
 .nav{
 	height: 5rem;
 	padding: 0 100px;
+	display: flex;
+	justify-content: space-between;
+	font-family: 'Montserrat', sans-serif;
 }
 .top{
 	padding: 3rem 100px;
@@ -46,7 +49,16 @@
 	margin-left: 6rem;
 	width: 60%;
 }
+.lower{
+	margin-top: 10rem;
+}
+.bluebg{
+	background: rgba(57, 101, 255, 0.08);
+	padding: 1rem;
+	margin: 3rem 0;
+}
 .footer{
+	margin-top: 10rem;
 	background-color: black;
 	padding: 2rem;
 	color: white;

@@ -17,6 +17,7 @@
     "gatsby": "^3.1.1",
     "react": "^17.0.1",
     "react-dom": "^17.0.1",
+    "react-icons": "^4.2.0",
     "typescript-plugin-css-modules": "^3.2.0"
   },
   "devDependencies": {

@@ -27,7 +27,7 @@ const Form: React.FC<Props> = ({formType}) => {
 		<div className={formType == 1 ? styles.form1: styles.form2 }>
 			<Input type={1} textChangeHandler={textChangeHandler}/>
 			<Input type={2} textChangeHandler={textChangeHandler}/>
-			<Button size={formType}>Join</Button>
+			<Button size={formType}>{formType == 1 ? "Join List" : "Submit"}</Button>
 		</div>
 	)
 }
