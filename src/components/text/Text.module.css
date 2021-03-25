@@ -1,13 +1,26 @@
 .text{
-	font-family: Montserrat;
 	font-style: normal;
 	font-weight: 600;
-	font-size: 32px;
+	font-size: 25px;
 	line-height: 115%;
 	color: #57595C;
-	width: 20rem;
+	margin-top: 1.2rem;
 }
-
+.w1{
+	width: 23rem;
+}
+.w2{
+	width: 28rem;
+}
+.w3{
+	width: 55rem;
+}
+.header{
+	color: #57595C;
+	font-size: 32px;
+	font-weight: 800;
+	line-height: 115%;
+}
 .right{
 	display: flex;
 	margin-left: auto;

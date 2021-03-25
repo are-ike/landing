@@ -1,0 +1,14 @@
+.input{
+	font-weight: 400;
+	font-family: 'Montserrat', sans-serif;
+	font-size: 19px;
+	width: 337px;
+	height: 62px;
+	background: rgba(196, 196, 196, 0.02);
+	border: 1px solid rgba(0, 0, 0, 0.52);
+	box-sizing: border-box;
+	border-radius: 12px;
+	padding-left: 1rem;
+	margin: 1rem;
+	outline: none;
+}
