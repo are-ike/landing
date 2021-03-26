@@ -1,11 +1,13 @@
 .form1{
 	display: flex;
+	box-sizing: border-box;
 	flex-direction: column;
 	align-items: center;
-	padding: 1rem;
+	padding: 1.5rem;
 	border-radius: 25px;
 	border: 1px solid rgba(0, 0, 0, 0.52);
-	width: 30%;
+	width: 50%;
+	margin-right: 7%;
 }
 .form2{
 	display: flex;
