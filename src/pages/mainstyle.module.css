@@ -26,11 +26,15 @@
 }
 .left{
 	align-self: start;
+	border: solid;
+	max-width: 40%;
 }
 .right{
 	align-self: flex-end;
 	margin-top: auto;
 	text-align: right;
+	border: solid;
+	width: 40%;
 }
 .formDiv{
 	display: flex;
