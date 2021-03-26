@@ -6,15 +6,21 @@
 .container{
 	max-width: 1500px;
 	margin: auto;
+	overflow-x: hidden;
 }
 .nav{
+	max-width: 1500px;
+	box-sizing: border-box;
 	padding: 15px 7%;
 	display: flex;
 	justify-content: space-between;
 	font-family: 'Montserrat', sans-serif;
 	align-items: center;
 }
+
 .top{
+	max-width: 1500px;
+	box-sizing: border-box;
 	padding: 3rem 7%;
 	height: calc((100vh - 5rem));
 	box-sizing: border-box;
@@ -25,7 +31,7 @@
 
 .left{
 	align-self: start;
-	max-width: 30%;
+	width: 30%;
 }
 .right{
 	align-self: flex-end;
@@ -34,6 +40,8 @@
 	width: 38%;
 }
 .formDiv{
+	max-width: 1500px;
+	box-sizing: border-box;
 	display: flex;
 	justify-content: space-between;
 	padding: 80px 7%;
@@ -41,6 +49,8 @@
 	font-family: 'Montserrat', sans-serif;
 }
 .formDiv2{
+	max-width: 1500px;
+	box-sizing: border-box;
 	display: flex;
 	flex-direction: column;
 	padding: 80px 7%;
@@ -61,6 +71,7 @@
 	margin: 3rem 0;
 }
 .footer{
+	max-width: 1500px;
 	margin-top: 10rem;
 	background-color: black;
 	padding: 2rem;
@@ -71,11 +82,58 @@
 
 /* Responsive */
 
-@media screen and (min-width: 320px){
+@media screen and (max-width: 1033px){
 	html{
-		
+		font-size: 14px;
 	}
-	.container{
+	.bluebg{
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		background-color: transparent;
+		width: 100%;
+		padding: 0;
+	}
+}
+@media screen and (max-width: 800px){
+	html{
+		font-size: 12px;
+	}
+	.formDiv{
+		flex-direction: column;
+		align-items: center;
+		
+		padding: 80px 0;
+	}
+	.formDiv2{
+		padding: 80px 0;
+	}
 
+	.info{
+		width: 90%;
+		display: flex;
+		align-items: center;
+		flex-direction: column;
+		text-align: center;
+		order: -1;
+		height: 200px;
+		margin-bottom: 1rem;
+	}
+}
+@media screen and (max-width: 600px){
+	html{
+		font-size: 11px;
+	}
+	img{
+		width: 80px;
+	}
+	.left, .right{
+		align-self: center;
+		text-align: center;
+		width: 100%;
+		margin-top: 10%;
+	}
+	.links{
+		display: none;
 	}
 }

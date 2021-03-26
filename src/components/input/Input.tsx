@@ -3,7 +3,7 @@ import * as styles from "./Input.module.css"
 
 type Props = {
 	type:number
-	textChangeHandler: () => void
+	textChangeHandler: (a:number, t:string) => void
 }
 const Input: React.FC<Props> = ({ type, textChangeHandler }) => {
 	let placeholder

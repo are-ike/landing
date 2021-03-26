@@ -13,3 +13,33 @@
 .form2{
 	display: flex;
 }
+.icon{
+	font-size: 1.3rem;
+}
+img{
+	height: 25px;
+}
+
+@media screen and (max-width: 1033px){
+	.form2{
+		box-sizing: border-box;
+		flex-direction: column;
+		align-items: center;
+		padding: 1.5rem;
+		border-radius: 25px;
+		border: 1px solid rgba(0, 0, 0, 0.52);
+		width: 50%;
+		min-width: 270px;
+		background: rgba(57, 101, 255, 0.08);
+	}
+}
+
+@media screen and (max-width: 800px){
+	.form1{
+		margin-right: 0;
+		min-width: 270px;
+	}
+	.form1, .form2{
+		padding: 1rem 1.5rem;
+	}
+}

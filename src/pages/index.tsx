@@ -3,16 +3,16 @@ import * as styles from "./mainstyle.module.css"
 import Text from "../components/text/Text"
 import Form from "../components/form/Form"
 import Links from "../components/links/Links"
-import logo from "../assets/Twinku.png"
+import logo from "../assets/Twinku2.svg"
 
-export default function Home() {
+const Home: React.FC = () => {
 	return (
 		<div className={styles.container}>
 			<div className={styles.nav} >
-        <div>
-				  <img src={logo} className={styles.img}/>
-        </div>
-        <Links/>
+				<img src={logo} className={styles.img}/>
+				<div className={styles.links}>
+				  <Links/>
+				</div>
 			</div>
 			<div className={styles.top}>
 				<div className={styles.left}>
@@ -36,14 +36,14 @@ export default function Home() {
 			<div className={styles.formDiv}>
 				<Form formType={1}/>
 				<div className={styles.info}>
-          <div>
-            <Text type="header">Join the Waiting List</Text>
-            <Text type="text">
+					<div>
+						<Text type="header">Join the Waiting List</Text>
+						<Text type="text">
                 Be among the first to know
                 when we launch
-            </Text>
-          </div>
-          <Links/>
+						</Text>
+					</div>
+					<Links/>
 				</div>
 			</div>
 			<div className={styles.formDiv2}>
@@ -57,10 +57,11 @@ export default function Home() {
 				</div>
 			</div>
 			<div className={styles.footer} >
-        &copy; 2020 All Rights Reserved
+        &copy; 2021 All Rights Reserved
 			</div>
 
 		</div>
 	) 
 }
 
+export default Home

@@ -14,7 +14,18 @@ a{
 	align-self: center;
 	margin-right: 0.3rem;
 }
+a:hover{
+	cursor: pointer;
+	color: #3965FF;
+}
 p{
 	font-weight: 600;
 	font-size: 1.2rem;
+}
+
+@media screen and (max-width: 800px){
+	.container{
+		width: 200px;
+		justify-content: space-between;
+	}
 }

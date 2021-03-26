@@ -1,7 +1,7 @@
 .input{
 	font-weight: 400;
 	font-family: 'Montserrat', sans-serif;
-	font-size: 19px;
+	font-size: 1.2rem;
 	width: 100%;
 	height: 62px;
 	background: rgba(196, 196, 196, 0.02);
@@ -12,4 +12,10 @@
 	margin: 1rem;
 	outline: none;
 	background-color: white;
+}
+
+@media screen and (max-width: 600px){
+	.input{
+		height: 50px;
+	}
 }
