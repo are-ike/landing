@@ -3,6 +3,7 @@
 	width: 270px;
 	justify-content: space-evenly;
 	color: #57595C;
+	padding: 1rem 0;
 }
 .link{
 	display: flex;

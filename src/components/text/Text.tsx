@@ -4,10 +4,10 @@ import * as styles from "./Text.module.css"
 type Props = {
 	type:string
 	children:string
-	width?:number
+	style?:string
 }
 
-const Text: React.FC<Props> = ({type, children, width}) => {
+const Text: React.FC<Props> = ({type, children, style}) => {
 	const styleArray = []
 	if(type == "header"){
 		styleArray.push(styles.header)
@@ -15,14 +15,8 @@ const Text: React.FC<Props> = ({type, children, width}) => {
 		styleArray.push(styles.text)
 	}
 
-	if(width == 1){
-		styleArray.push(styles.w1)
-	}
-	if(width == 2){
-		styleArray.push(styles.w2)
-	}
-	if(width == 3){
-		styleArray.push(styles.w3)
+	if(style == "center"){
+		styleArray.push(styles.center)
 	}
 	return (
 		<p className={styleArray.join(" ")}>{children}</p>
