@@ -5,22 +5,12 @@ import Form from "../components/form/Form"
 import Links from "../components/links/Links"
 import logo from "../assets/Twinku2.svg"
 import { QueryClientProvider, QueryClient} from "react-query"
-import { ToastContainer, toast } from "react-toastify"
-import 'react-toastify/dist/ReactToastify.css'
+import { configure, notify} from "../components/notification/Toast"
 
 const Home: React.FC = () => {
 
-  const client = new QueryClient()
-  toast.configure()
-  const notify = (msg:string, status:string) => {
-    if(status == "warn"){
-      toast.warn(msg, {position: toast.POSITION.TOP_CENTER, toastId: "warn"})
-    }else if (status == "success"){
-      toast.success(msg, {position: toast.POSITION.TOP_CENTER, toastId: "success"})
-    }else if(status == "error"){
-      toast.error(msg, { position: toast.POSITION.TOP_CENTER, toastId: "error"})
-    }
-  }
+	const client = new QueryClient()
+	configure()
 	return (
 		<QueryClientProvider client={client}>
 			<div className={styles.container}>

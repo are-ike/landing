@@ -16,7 +16,7 @@ const Form: React.FC<Props> = (prop) => {
 		fullName: "",
 		email: ""
 	})
-	const [showError, setShowError] = useState(false)
+	const [showError, setShowError] = useState("")
 	const mutation = useMutation((data) => addToWaitlist(data))
 	const { isLoading, isError, isSuccess } = mutation
 
@@ -27,14 +27,12 @@ const Form: React.FC<Props> = (prop) => {
 		styleArray.push(styles.form2)
 	}
 
-	if(showError){
-		styleArray.push(styles.error)
-	}
 	useEffect(() => {
 		if(isSuccess){
 			prop.notifyFunction("Sucessfully Submitted. Thank You!", "success")
 		}
 		else if(isError){
+			setShowError("both")
 			prop.notifyFunction("Submission Failed. Please try again", "error")
 		}
 					
@@ -52,23 +50,35 @@ const Form: React.FC<Props> = (prop) => {
 	}
 	
 	const onSubmit = () => {
-		if(state.fullName == "" || state.email == ""){
-			prop.notifyFunction("Please fill in the form", "warn")
-			setShowError(true)
+		if(state.fullName == ""){
+			prop.notifyFunction("Please fill in your name", "warn")
+			setShowError("fullName")
+		}
+		else if(state.email == ""){
+			prop.notifyFunction("Please fill in your email", "warn")
+			setShowError("email")
 		}else if(!isEmail(state.email) &&  state.email){
 			prop.notifyFunction("Please enter a valid email", "warn")
-			setShowError(true)
+			setShowError("email")
 		}else{
 			mutation.mutate(state)
-			setShowError(false)
+			setShowError("")
 		}
 	}
 
 	
 	return(
-		<div className={styleArray.join(" ")} onFocus={() => setShowError(false)}>
-			<Input type={1} textChangeHandler={textChangeHandler}/>
-			<Input type={2} textChangeHandler={textChangeHandler}/>
+		<div className={styleArray.join(" ")} onFocus={() => setShowError("")}>
+			<Input 
+				type={1} 
+				textChangeHandler={textChangeHandler} 
+				error={showError == "fullName" || showError ==  "both" ? true : false}
+			/>
+			<Input 
+				type={2} 
+				textChangeHandler={textChangeHandler} 
+				error={showError == "email" || showError ==  "both" ? true : false}
+			/>
 			{isLoading ? 
 				<Button size={prop.formType} disable={true}>
 					<img src={Loader} className={styles.loader}/>	

@@ -5,7 +5,6 @@ type Props = {
 	size:number
 	submitFunction?:() => void
 	disable?:boolean
-	success?:boolean
 }
 
 const Button: React.FC<Props> = (prop) => {
@@ -16,9 +15,6 @@ const Button: React.FC<Props> = (prop) => {
 	}
 	if(prop.disable){
 		styleArray.push(styles.disable)
-	}
-	if(prop.success){
-		styleArray.push(styles.success)
 	}
 	return (
 		<div className={styleArray.join(" ")} onClick={prop.submitFunction}>

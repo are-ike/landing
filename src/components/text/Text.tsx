@@ -7,7 +7,8 @@ type Props = {
 	style?:string
 }
 
-const Text: React.FC<Props> = ({type, children, style}) => {
+const Text: React.FC<Props> = (prop) => {
+	const {type, children, style} = prop
 	const styleArray = []
 	if(type == "header"){
 		styleArray.push(styles.header)

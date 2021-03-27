@@ -4,7 +4,7 @@ import {FaInstagram} from  "react-icons/fa"
 import {FaTwitter} from  "react-icons/fa"
 
 
-const Links = () => {
+const Links: React.FC = () => {
 	
 	return (
 		<div className={styles.container}>

@@ -9,6 +9,7 @@
 	width: 100%;
 	margin: 1rem;
 	font-size: 1.2rem;
+	box-shadow: 0 3px 6px lightgray;
 }
 .btn:hover{
 	background: #abe5f7;
@@ -18,11 +19,7 @@
 	background-color: #e6e6e6;
 	cursor: default;
 }
-.success, .success:hover{
-	background-color:#96E6FF;
-	cursor: default;
-	color: white;
-}
+
 .size2{
 	width: auto;
 	padding: 1rem 4rem;

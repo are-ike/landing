@@ -16,6 +16,9 @@
 .error{
 	border: 1px red solid;
 }
+.input:focus{
+	border: 1px solid #3965FF;
+}
 @media screen and (max-width: 600px){
 	.input{
 		height: 50px;
