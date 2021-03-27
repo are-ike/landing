@@ -1,9 +1,16 @@
 export const addToWaitlist = async (data) => {
-	const {fullName, email} = data
+	const {fullName, email, type} = data
+	let userType
+	if(type == 1){
+		userType = "User"
+	}else{
+		userType = "Investor"
+	}
 	const mutation = 
 	`mutation{
-		addUserToWaitList(waitlist: {
+		addToWaitList(waitlist: {
 		  fullName: "${fullName}"
+		  type: "${userType}"
 		  email: "${email}"
 		})
 		
@@ -27,7 +34,7 @@ export const addToWaitlist = async (data) => {
 	
 }
 export const trial = async (data) => {
-	const {fullName, email} = data
+	const {fullName, email, type} = data
 	const mutation = 
 	{
 		title: fullName,

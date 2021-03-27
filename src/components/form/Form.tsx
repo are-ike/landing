@@ -16,8 +16,12 @@ const Form: React.FC<Props> = (prop) => {
 		fullName: "",
 		email: ""
 	})
+	const data = {
+		...state,
+		type: prop.formType
+	}
 	const [showError, setShowError] = useState("")
-	const mutation = useMutation((data) => addToWaitlist(data))
+	const mutation = useMutation((data) => trial(data))
 	const { isLoading, isError, isSuccess } = mutation
 
 	const styleArray = []
@@ -30,6 +34,10 @@ const Form: React.FC<Props> = (prop) => {
 	useEffect(() => {
 		if(isSuccess){
 			prop.notifyFunction("Sucessfully Submitted. Thank You!", "success")
+			setState({
+				fullName: "",
+				email: ""
+			})
 		}
 		else if(isError){
 			setShowError("both")
@@ -61,7 +69,7 @@ const Form: React.FC<Props> = (prop) => {
 			prop.notifyFunction("Please enter a valid email", "warn")
 			setShowError("email")
 		}else{
-			mutation.mutate(state)
+			mutation.mutate(data)
 			setShowError("")
 		}
 	}
@@ -70,12 +78,14 @@ const Form: React.FC<Props> = (prop) => {
 	return(
 		<div className={styleArray.join(" ")} onFocus={() => setShowError("")}>
 			<Input 
-				type={1} 
+				type={1}
+				value={state.fullName} 
 				textChangeHandler={textChangeHandler} 
 				error={showError == "fullName" || showError ==  "both" ? true : false}
 			/>
 			<Input 
-				type={2} 
+				type={2}
+				value={state.email} 
 				textChangeHandler={textChangeHandler} 
 				error={showError == "email" || showError ==  "both" ? true : false}
 			/>

@@ -5,10 +5,11 @@ type Props = {
 	type:number
 	textChangeHandler: (a:number, t:string) => void
 	error:boolean
+	value:string
 }
 
 const Input: React.FC<Props> = (prop) => {
-	const { type, textChangeHandler, error } = prop
+	const { type, textChangeHandler, error, value } = prop
 	const styleArray = [styles.input]
 	let placeholder
 	if(type == 1){
@@ -24,6 +25,7 @@ const Input: React.FC<Props> = (prop) => {
 		placeholder={placeholder} 
 		className={styleArray.join(" ")}
 		onChange={(e) => textChangeHandler(type, e.target.value)}
+		value={value}
 	/>
 }
 
