@@ -21,7 +21,7 @@ const Form: React.FC<Props> = (prop) => {
 		type: prop.formType
 	}
 	const [showError, setShowError] = useState("")
-	const mutation = useMutation((data) => trial(data))
+	const mutation = useMutation((data) => addToWaitlist(data))
 	const { isLoading, isError, isSuccess } = mutation
 
 	const styleArray = []
