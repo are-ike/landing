@@ -4,63 +4,80 @@ import Text from "../components/text/Text"
 import Form from "../components/form/Form"
 import Links from "../components/links/Links"
 import logo from "../assets/Twinku2.svg"
+import { QueryClientProvider, QueryClient} from "react-query"
+import { ToastContainer, toast } from "react-toastify"
+import 'react-toastify/dist/ReactToastify.css'
 
 const Home: React.FC = () => {
+
+  const client = new QueryClient()
+  toast.configure()
+  const notify = (msg:string, status:string) => {
+    if(status == "warn"){
+      toast.warn(msg, {position: toast.POSITION.TOP_CENTER, toastId: "warn"})
+    }else if (status == "success"){
+      toast.success(msg, {position: toast.POSITION.TOP_CENTER, toastId: "success"})
+    }else if(status == "error"){
+      toast.error(msg, { position: toast.POSITION.TOP_CENTER, toastId: "error"})
+    }
+  }
 	return (
-		<div className={styles.container}>
-			<div className={styles.nav} >
-				<img src={logo} className={styles.img}/>
-				<div className={styles.links}>
-				  <Links/>
+		<QueryClientProvider client={client}>
+			<div className={styles.container}>
+				<div className={styles.nav} >
+					<img src={logo} className={styles.img}/>
+					<div className={styles.links}>
+						<Links/>
+					</div>
 				</div>
-			</div>
-			<div className={styles.top}>
-				<div className={styles.left}>
-					<Text type="header">Connect.</Text>
-					<Text type="text">
+				<div className={styles.top}>
+					<div className={styles.left}>
+						<Text type="header">Connect.</Text>
+						<Text type="text">
           Twinku allows you to
           connect and view your
           financial assets at a glance
-					</Text>
-				</div>
-				<div className={styles.right}>
-					<Text type="header">Pass On.</Text>
-					<Text type="text">
+						</Text>
+					</div>
+					<div className={styles.right}>
+						<Text type="header">Pass On.</Text>
+						<Text type="text">
           When life happens, we assist
           by contacting and passing
           information about your connected
           assets to your loved ones
-					</Text>
-				</div>
-			</div> 
-			<div className={styles.formDiv}>
-				<Form formType={1}/>
-				<div className={styles.info}>
-					<div>
-						<Text type="header">Join the Waiting List</Text>
-						<Text type="text">
-                Be among the first to know
-                when we launch
 						</Text>
 					</div>
-					<Links/>
+				</div> 
+				<div className={styles.formDiv}>
+					<Form formType={1} notifyFunction={notify}/>
+					<div className={styles.info}>
+						<div>
+							<Text type="header">Join the Waiting List</Text>
+							<Text type="text">
+                Be among the first to know
+                when we launch
+							</Text>
+						</div>
+						<Links/>
+					</div>
 				</div>
-			</div>
-			<div className={styles.formDiv2}>
-				<Text type="header">For Investors</Text>
-				<Text style="center" type="text">
+				<div className={styles.formDiv2}>
+					<Text type="header">For Investors</Text>
+					<Text style="center" type="text">
         We would be glad to welcome your investments in building Twinku. 
         Fill in your details to get started and we’ll get in touch.
-				</Text>
-				<div className={styles.bluebg}>
-					<Form formType={2}/>
+					</Text>
+					<div className={styles.bluebg}>
+						<Form formType={2} notifyFunction={notify}/>
+					</div>
 				</div>
-			</div>
-			<div className={styles.footer} >
+				<div className={styles.footer} >
         &copy; 2021 All Rights Reserved
-			</div>
+				</div>
 
-		</div>
+			</div>
+		</QueryClientProvider>
 	) 
 }
 

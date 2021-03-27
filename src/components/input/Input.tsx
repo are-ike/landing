@@ -5,7 +5,8 @@ type Props = {
 	type:number
 	textChangeHandler: (a:number, t:string) => void
 }
-const Input: React.FC<Props> = ({ type, textChangeHandler }) => {
+const Input: React.FC<Props> = (prop) => {
+	const { type, textChangeHandler } = prop
 	let placeholder
 	if(type == 1){
 		placeholder = "Full Name"
@@ -14,10 +15,10 @@ const Input: React.FC<Props> = ({ type, textChangeHandler }) => {
 		placeholder = "Email Address"
 	}
 	return <input 
-				placeholder={placeholder} 
-				className={styles.input}
-				onChange={(e) => textChangeHandler(type, e.target.value)}
-			/>
+		placeholder={placeholder} 
+		className={styles.input}
+		onChange={(e) => textChangeHandler(type, e.target.value)}
+	/>
 }
 
 export default Input

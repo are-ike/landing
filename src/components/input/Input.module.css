@@ -13,7 +13,9 @@
 	outline: none;
 	background-color: white;
 }
-
+.error{
+	border: 1px red solid;
+}
 @media screen and (max-width: 600px){
 	.input{
 		height: 50px;

@@ -21,7 +21,9 @@ img{
 	width: 1.5rem;
 	height: 1.5rem;
 }
-
+.error{
+	border: red 1px solid !important;
+}
 @media screen and (max-width: 1033px){
 	.form2{
 		box-sizing: border-box;
