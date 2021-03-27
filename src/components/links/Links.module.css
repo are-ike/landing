@@ -29,3 +29,11 @@ p{
 		justify-content: space-between;
 	}
 }
+@media screen and (max-width: 600px){
+	.container{
+		width: 130px;
+	}
+	p{
+		font-size: 10px;
+	}
+}

@@ -3,9 +3,10 @@ import * as styles from "./mainstyle.module.css"
 import Text from "../components/text/Text"
 import Form from "../components/form/Form"
 import Links from "../components/links/Links"
-import logo from "../assets/Twinku2.svg"
+import logo from "../assets/Twinku.svg"
 import { QueryClientProvider, QueryClient} from "react-query"
 import { configure, notify} from "../components/notification/Toast"
+import landingImage from "../assets/landing.jpg"
 
 const Home: React.FC = () => {
 
@@ -22,21 +23,26 @@ const Home: React.FC = () => {
 				</div>
 				<div className={styles.top}>
 					<div className={styles.left}>
-						<Text type="header">Connect.</Text>
-						<Text type="text">
-          Twinku allows you to
-          connect and view your
-          financial assets at a glance
-						</Text>
+						<div className={styles.left1}>
+							<Text type="header">Connect.</Text>
+							<Text type="text">
+								Twinku allows you to
+								connect and view your
+								financial assets at a glance
+							</Text>
+						</div>
+						<div className={styles.left2}>
+							<Text type="header">Pass On.</Text>
+							<Text type="text">
+								When life happens, we assist
+								by contacting and passing
+								information about your connected
+								assets to your loved ones
+							</Text>
+						</div>
 					</div>
-					<div className={styles.right}>
-						<Text type="header">Pass On.</Text>
-						<Text type="text">
-          When life happens, we assist
-          by contacting and passing
-          information about your connected
-          assets to your loved ones
-						</Text>
+					<div className={styles.landingImage}>
+						<img src={landingImage}/>
 					</div>
 				</div> 
 				<div className={styles.formDiv}>
