@@ -16,6 +16,18 @@
 .error{
 	border: 1px red solid;
 }
+.errorDiv{
+	width: 100%;
+	
+}
+.errorDiv .input{
+	margin: 1rem 0;
+	margin-bottom: 0.5rem;
+}
+.errorDiv p{
+	color: #57595C;
+	font-size: 1rem;
+}
 .input:focus{
 	border: 1px solid #3965FF;
 }

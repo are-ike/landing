@@ -6,6 +6,7 @@ import Links from "../components/links/Links"
 import logo from "../assets/Twinku.svg"
 import { QueryClientProvider, QueryClient} from "react-query"
 import { configure, notify} from "../components/notification/Toast"
+import Seo from "../seo/Seo"
 import landingImage from "../assets/landing.jpg"
 
 const Home: React.FC = () => {
@@ -14,6 +15,7 @@ const Home: React.FC = () => {
 	configure()
 	return (
 		<QueryClientProvider client={client}>
+			<Seo/>
 			<div className={styles.container}>
 				<div className={styles.nav} >
 					<img src={logo} className={styles.img}/>

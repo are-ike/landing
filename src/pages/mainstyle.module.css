@@ -17,7 +17,7 @@
 	font-family: 'Montserrat', sans-serif;
 	align-items: center;
 }
-.nav img{
+.nav img, .notFound img{
 	width: 100px;
 	
 }
@@ -92,7 +92,32 @@
 	font-family: 'Montserrat', sans-serif;
 	text-align: center;
 }
+.notFoundContainer{
+	height: 100vh;
+	display: flex;
+	flex-direction: column;
+	padding-top: 15px;
+	box-sizing: border-box;
+	max-width: 1500px;
+	font-family: 'Montserrat', sans-serif;
+}
+.notFound{
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	flex-direction: column;
+	box-sizing: border-box;
+	padding: 2rem;
+	text-align: center;
+	justify-self: center;
 
+	height: calc(100vh - 12rem);
+}
+.notFound .icon{
+	font-size: 4rem;
+	color: #57595C;
+	margin-bottom: 2rem;
+}
 /* Responsive */
 
 @media screen and (max-width: 1033px){

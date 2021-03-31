@@ -4,12 +4,13 @@ import * as styles from "./Input.module.css"
 type Props = {
 	type:number
 	textChangeHandler: (a:number, t:string) => void
-	error:boolean
+	error:string
 	value:string
+	removeErrorHandler: (type:number) => void
 }
 
 const Input: React.FC<Props> = (prop) => {
-	const { type, textChangeHandler, error, value } = prop
+	const { type, textChangeHandler, error, value, removeErrorHandler } = prop
 	const styleArray = [styles.input]
 	let placeholder
 	if(type == 1){
@@ -20,12 +21,37 @@ const Input: React.FC<Props> = (prop) => {
 	}
 	if(error){
 		styleArray.push(styles.error)
+		if(error !== "Submission failed"){
+			return (
+				<div className={styles.errorDiv}>
+					<input 
+						placeholder={placeholder} 
+						className={styleArray.join(" ")}
+						onChange={(e) => textChangeHandler(type, e.target.value)}
+						value={value}
+						onFocus={() => {
+							if(error){
+								removeErrorHandler(type)
+							}
+						}}
+						
+					/>
+					<p>{error}</p>
+				</div>
+			)
+		}
 	}
+
 	return <input 
 		placeholder={placeholder} 
 		className={styleArray.join(" ")}
 		onChange={(e) => textChangeHandler(type, e.target.value)}
 		value={value}
+		onFocus={() => {
+			if(error){
+				removeErrorHandler(type)
+			}
+		}}
 	/>
 }
 

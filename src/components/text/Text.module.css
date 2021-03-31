@@ -18,6 +18,12 @@
 	font-weight: 800;
 	line-height: 115%;
 }
+.largeHeader{
+	color: #57595C;
+	font-size: 2.3rem;
+	font-weight: 800;
+	line-height: 115%;
+}
 .right{
 	display: flex;
 	margin-left: auto;

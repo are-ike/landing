@@ -20,8 +20,11 @@ const Form: React.FC<Props> = (prop) => {
 		...state,
 		type: prop.formType
 	}
-	const [showError, setShowError] = useState("")
-	const mutation = useMutation((data) => trial(data))
+	const [showError, setShowError] = useState({
+		fullName: "",
+		email: ""
+	})
+	const mutation = useMutation((data) => addToWaitlist(data))
 	const { isLoading, isError, isSuccess } = mutation
 
 	const styleArray = []
@@ -40,7 +43,10 @@ const Form: React.FC<Props> = (prop) => {
 			})
 		}
 		else if(isError){
-			setShowError("both")
+			setShowError({
+				fullName: "Submission failed",
+				email: "Submission failed"
+			})
 			prop.notifyFunction("Submission Failed. Please try again", "error")
 		}
 					
@@ -57,37 +63,48 @@ const Form: React.FC<Props> = (prop) => {
 		setState(newState)
 	}
 	
+	const removeError = (type:number) => {
+		const newError = {...showError}
+		if(type == 1){
+			newError.fullName = ""
+		}
+		if(type == 2){
+			newError.email = ""
+		}
+		setShowError(newError)
+	}
+
 	const onSubmit = () => {
+		const newError = {...showError}
 		if(state.fullName == ""){
-			prop.notifyFunction("Please fill in your name", "warn")
-			setShowError("fullName")
+			newError.fullName = "Please fill in your full name"
 		}
 		else if(state.email == ""){
-			prop.notifyFunction("Please fill in your email", "warn")
-			setShowError("email")
+			newError.email = "Please fill in your email"
 		}else if(!isEmail(state.email) &&  state.email){
-			prop.notifyFunction("Please enter a valid email", "warn")
-			setShowError("email")
+			newError.email= "Please enter a valid email"
 		}else{
 			mutation.mutate(data)
-			setShowError("")
 		}
+		setShowError(newError)
 	}
 
 	
 	return(
-		<div className={styleArray.join(" ")} onFocus={() => setShowError("")}>
+		<div className={styleArray.join(" ")}>
 			<Input 
 				type={1}
 				value={state.fullName} 
 				textChangeHandler={textChangeHandler} 
-				error={showError == "fullName" || showError ==  "both" ? true : false}
+				error={showError.fullName.length ? showError.fullName : ""}
+				removeErrorHandler={removeError}
 			/>
 			<Input 
 				type={2}
 				value={state.email} 
 				textChangeHandler={textChangeHandler} 
-				error={showError == "email" || showError ==  "both" ? true : false}
+				error={showError.email.length ? showError.email : ""}
+				removeErrorHandler={removeError}
 			/>
 			{isLoading ? 
 				<Button size={prop.formType} disable={true}>

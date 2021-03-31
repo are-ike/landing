@@ -12,6 +12,9 @@ const Text: React.FC<Props> = (prop) => {
 	const styleArray = []
 	if(type == "header"){
 		styleArray.push(styles.header)
+	}
+	if(type == "lg-header"){
+		styleArray.push(styles.largeHeader)
 	}else {
 		styleArray.push(styles.text)
 	}

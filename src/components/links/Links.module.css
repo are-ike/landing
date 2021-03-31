@@ -13,6 +13,9 @@ a{
 	display: flex;
 	align-self: center;
 	margin-right: 0.3rem;
+	align-items: center;
+	text-decoration: none;
+	color: #57595C;
 }
 a:hover{
 	cursor: pointer;
@@ -20,6 +23,7 @@ a:hover{
 }
 p{
 	font-weight: 600;
+	margin-left: 0.4rem;
 	font-size: 1.2rem;
 }
 

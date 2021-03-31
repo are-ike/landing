@@ -11,14 +11,14 @@ const Links: React.FC = () => {
 			<div className={styles.link}>
 				<a>
 					<FaInstagram/>
+					<p className={styles.text}>Instagram</p>
 				</a>
-				<p className={styles.text}>Instagram</p>
 			</div>
 			<div className={styles.link}>
-				<a>
+				<a href="https://twitter.com/connectTwinku">
 					<FaTwitter/>
+					<p className={styles.text}>Twitter</p>
 				</a>
-				<p className={styles.text}>Twitter</p>
 			</div>
 		</div>
 	)
