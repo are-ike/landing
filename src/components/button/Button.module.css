@@ -10,6 +10,10 @@
 	margin: 1rem;
 	font-size: 1.2rem;
 	box-shadow: 0 3px 6px lightgray;
+	height: 3.8rem;
+	outline: none;
+	border: none;
+	font-family: 'Montserrat', sans-serif;
 }
 .btn:hover{
 	background: #abe5f7;

@@ -3,14 +3,17 @@ import * as styles from "./Input.module.css"
 
 type Props = {
 	type:number
-	textChangeHandler: (a:number, t:string) => void
-	error:string
+	formType:number
+	error:string | undefined
 	value:string
-	removeErrorHandler: (type:number) => void
+	name:string
+	onChange: (e: React.ChangeEvent) => void
+	onBlur: (e: React.ChangeEvent) => void
+	touched:boolean | undefined
 }
 
 const Input: React.FC<Props> = (prop) => {
-	const { type, textChangeHandler, error, value, removeErrorHandler } = prop
+	const { type, error, value, formType, name, onBlur, onChange, touched } = prop
 	const styleArray = [styles.input]
 	let placeholder
 	if(type == 1){
@@ -23,35 +26,30 @@ const Input: React.FC<Props> = (prop) => {
 		styleArray.push(styles.error)
 		if(error !== "Submission failed"){
 			return (
-				<div className={styles.errorDiv}>
+				<div className={formType == 1 ? styles.errorDiv: styles.errorDiv2}>
 					<input 
 						placeholder={placeholder} 
 						className={styleArray.join(" ")}
-						onChange={(e) => textChangeHandler(type, e.target.value)}
+						onChange={onChange}
 						value={value}
-						onFocus={() => {
-							if(error){
-								removeErrorHandler(type)
-							}
-						}}
-						
+						onBlur={onBlur}
+						name={name}					
 					/>
+					{error && touched && error &&
 					<p>{error}</p>
+					}
 				</div>
 			)
 		}
 	}
-
+	
 	return <input 
 		placeholder={placeholder} 
 		className={styleArray.join(" ")}
-		onChange={(e) => textChangeHandler(type, e.target.value)}
+		onChange={onChange}
 		value={value}
-		onFocus={() => {
-			if(error){
-				removeErrorHandler(type)
-			}
-		}}
+		onBlur={onBlur}
+		name={name}	
 	/>
 }
 

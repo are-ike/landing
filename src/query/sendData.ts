@@ -30,6 +30,8 @@ export const addToWaitlist = async (data) => {
 			body: JSON.stringify({query: mutation})
 		}
 	)
+	console.log(response.json());
+	
 	return response
 }
 export const trial = async (data) => {

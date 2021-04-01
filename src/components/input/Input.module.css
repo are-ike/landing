@@ -16,15 +16,21 @@
 .error{
 	border: 1px red solid;
 }
-.errorDiv{
-	width: 100%;
-	
+.errorDiv, .errorDiv2{
+	width: 100%;	
+}
+.errorDiv2{
+	padding: 0 1rem;
 }
 .errorDiv .input{
 	margin: 1rem 0;
 	margin-bottom: 0.5rem;
 }
-.errorDiv p{
+.errorDiv2 .input{
+	margin: 1rem 0;
+	
+}
+p{
 	color: #57595C;
 	font-size: 1rem;
 }

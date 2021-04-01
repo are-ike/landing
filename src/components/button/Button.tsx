@@ -3,7 +3,6 @@ import * as styles from "./Button.module.css"
 
 type Props = {
 	size:number
-	submitFunction?:() => void
 	disable?:boolean
 }
 
@@ -17,9 +16,9 @@ const Button: React.FC<Props> = (prop) => {
 		styleArray.push(styles.disable)
 	}
 	return (
-		<div className={styleArray.join(" ")} onClick={prop.submitFunction}>
+		<button className={styleArray.join(" ")} type={prop.disable ? "button" : "submit"}>
 			{prop.children}
-		</div>
+		</button>
 	)
 }
 

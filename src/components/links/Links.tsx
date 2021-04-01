@@ -15,7 +15,7 @@ const Links: React.FC = () => {
 				</a>
 			</div>
 			<div className={styles.link}>
-				<a href="https://twitter.com/connectTwinku">
+				<a href="https://twitter.com/connectTwinku" target="_blank" rel="noreferrer">
 					<FaTwitter/>
 					<p className={styles.text}>Twitter</p>
 				</a>
