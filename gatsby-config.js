@@ -6,13 +6,14 @@
 
 module.exports = {
 	siteMetadata: {
-		title: "Twinku",
-		titleTemplate: "%s · Twinku",
-		description:
-      "We keep financial assets that matter to you & your loved ones, all in one place.",
-		url: "https://www.doe.com", // No trailing slash allowed!
-		image: "/images/snape.jpg", // Path to your image you placed in the 'static' folder
+		title: "Twinku - We Keep Your Financial Assets All In One Place",
+		titleTemplate: "%s",
+		description: "We keep financial assets that matter to you & your loved ones, all in one place.",
+		url: "https://www.twinku.co", // No trailing slash allowed!
+		image: "src/assets/landing.jpg", // Path to your image you placed in the 'static' folder
 		twitterUsername: "@connectTwinku",
+		keywords: "twinku, keep financial assests, financial assets, loved ones, connect account, link account, add beneficiaries, saving, investment, linking my Nigerian bank account, financial assests in Nigeria"
 	},
 	plugins: ["gatsby-plugin-react-helmet"],
+
 }

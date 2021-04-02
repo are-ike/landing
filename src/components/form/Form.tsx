@@ -1,4 +1,4 @@
-import React, { useEffect} from "react"
+import React, { useEffect, useState} from "react"
 import Input from "../input/Input"
 import Button from "../button/Button"
 import * as styles from "./Form.module.css"
@@ -15,7 +15,10 @@ type Props = {
 const Form: React.FC<Props> = (prop) => {
 	const mutation = useMutation((data) => addToWaitlist(data))
 	const { isLoading, isError, isSuccess } = mutation
-
+	const [state, setState] = useState({
+		fullName: "",
+		email: ""
+	})
 	const styleArray = []
 	if(prop.formType == 1){
 		styleArray.push(styles.form1)
@@ -26,10 +29,12 @@ const Form: React.FC<Props> = (prop) => {
 	useEffect(() => {
 		if(isSuccess){
 			prop.notifyFunction("Sucessfully Submitted. Thank You!", "success")
-		
+			setState({
+				fullName: "",
+				email: ""
+			})
 		}
-		else if(isError){
-			
+		else if(isError){	
 			prop.notifyFunction("Submission Failed. Please try again", "error")
 		}
 					
@@ -37,7 +42,8 @@ const Form: React.FC<Props> = (prop) => {
 	
 	return(
 		<Formik
-			initialValues={{ fullName: "", email: "" }}
+			enableReinitialize={true}
+			initialValues={state}
 			validate={values => {
 				const errors: {
 					fullName?:string
@@ -56,22 +62,16 @@ const Form: React.FC<Props> = (prop) => {
 				return errors
 			}}
 			onSubmit={(values, {resetForm}) => {
-				mutation.mutate({
+				const data = {
 					fullName: values.fullName,
 					email: values.email,
 					type: prop.formType
-				})
-				if(!isLoading){
-					resetForm({
-						values: {
-							fullName: "",
-							email: ""
-						}
-					})
 				}
+				console.log(data);
+				console.log(state);
 				
+				mutation.mutate(data)
 				
-		 
 			}}
 		>
 			{({
