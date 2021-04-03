@@ -15,24 +15,18 @@ type Props = {
 const Form: React.FC<Props> = (prop) => {
 	const mutation = useMutation((data) => addToWaitlist(data))
 	const { isLoading, isError, isSuccess } = mutation
-	const [state, setState] = useState({
-		fullName: "",
-		email: ""
-	})
+
 	const styleArray = []
 	if(prop.formType == 1){
 		styleArray.push(styles.form1)
 	}else{
 		styleArray.push(styles.form2)
 	}
-
+	
 	useEffect(() => {
 		if(isSuccess){
 			prop.notifyFunction("Sucessfully Submitted. Thank You!", "success")
-			setState({
-				fullName: "",
-				email: ""
-			})
+	
 		}
 		else if(isError){	
 			prop.notifyFunction("Submission Failed. Please try again", "error")
@@ -42,8 +36,10 @@ const Form: React.FC<Props> = (prop) => {
 	
 	return(
 		<Formik
-			enableReinitialize={true}
-			initialValues={state}
+			initialValues={{
+				fullName: "",
+				email: ""
+			}}
 			validate={values => {
 				const errors: {
 					fullName?:string
@@ -67,10 +63,10 @@ const Form: React.FC<Props> = (prop) => {
 					email: values.email,
 					type: prop.formType
 				}
-				console.log(data);
-				console.log(state);
-				
+			
 				mutation.mutate(data)
+				resetForm()
+				
 				
 			}}
 		>
