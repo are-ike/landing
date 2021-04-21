@@ -64,8 +64,10 @@ const Form: React.FC<Props> = (prop) => {
 					type: prop.formType
 				}
 			
-				mutation.mutate(data)
-				resetForm()
+				mutation.mutate(data, {
+					onSuccess: resetForm
+				})
+				
 				
 				
 			}}

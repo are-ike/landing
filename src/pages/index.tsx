@@ -60,7 +60,7 @@ const Home: React.FC = () => {
 						<Links/>
 					</div>
 				</div>
-				<div className={styles.formDiv2}>
+				{/* <div className={styles.formDiv2}>
 					<Text type="header">For Investors</Text>
 					<Text style="center" type="text">
         We would be glad to welcome your investments in building Twinku. 
@@ -69,7 +69,7 @@ const Home: React.FC = () => {
 					<div className={styles.bluebg}>
 						<Form formType={2} notifyFunction={notify}/>
 					</div>
-				</div>
+				</div> */}
 				<div className={styles.footer} >
         &copy; 2021 All Rights Reserved
 				</div>
